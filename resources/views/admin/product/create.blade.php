@@ -43,7 +43,7 @@
                   <div class="form-group mg-b-10-force">
                     <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
                     <select class="form-control select2" data-placeholder="Choose country" name="category_id">
-                      <option label="Choose Catgory"></option>
+                      <option label="">Choose Category</option>
                       <option value="USA">United States of America</option>
                       <option value="UK">United Kingdom</option>
                       <option value="China">China</option>
@@ -77,10 +77,31 @@
                 <div class="col-lg-4">
                     <div class="form-group mg-b-10-force">
                         <label class="form-control-label">Product Size: <span class="tx-danger">*</span></label>
-                        <input class="form-control" type="text"  name="product_size" placeholder="Size">
+                        <input class="form-control" type="text"  name="product_size" id="size" data-role="tagsinput" >
                     
                     </div>
                   </div>  
+                  <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Product Color: <span class="tx-danger">*</span></label>
+                        <input class="form-control" type="text"  name="product_color" id="color" data-role="tagsinput" >
+                    
+                    </div>
+                  </div> 
+                  <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Selling Price: <span class="tx-danger">*</span></label>
+                        <input class="form-control" type="text"  name="selling_price" placeholder="Price" >
+                    
+                    </div>
+                  </div> 
+                  <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Product Description: <span class="tx-danger">*</span></label>
+                 <textarea name=""  cols="30" name="product_details" id="summernote" class="form-control" rows="10"></textarea>
+                    
+                    </div>
+                  </div> 
               </div><!-- row -->
   
               <div class="form-layout-footer">

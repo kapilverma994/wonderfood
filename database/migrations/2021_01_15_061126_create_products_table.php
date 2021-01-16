@@ -40,6 +40,7 @@ class CreateProductsTable extends Migration
             $table->string('image_five')->nullable();
             $table->string('image_six')->nullable();
             $table->integer('status')->default(1);
+            $table->text('tags')->nullable();
             $table->timestamps();
         });
     }
