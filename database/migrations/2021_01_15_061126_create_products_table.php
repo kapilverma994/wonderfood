@@ -39,8 +39,12 @@ class CreateProductsTable extends Migration
             $table->string('image_four')->nullable();
             $table->string('image_five')->nullable();
             $table->string('image_six')->nullable();
+            $table->text('meta_title')->nullable();
+            $table->text('meta_keyword')->nullable();
+            $table->text('meta_description')->nullable();
             $table->integer('status')->default(1);
             $table->text('tags')->nullable();
+           
             $table->timestamps();
         });
     }

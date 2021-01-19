@@ -101,9 +101,9 @@
                  <textarea name=""  cols="30" name="product_details" id="summernote" class="form-control" rows="10"></textarea>
                     
                     </div>
+                   
                   </div> 
-                  
-                  <div class="col-lg-8">
+                  <div class="col-lg-6">
                     <div class="form-group mg-b-10-force">
                         <label class="form-control-label">Product Tags: <span class="tx-danger">*</span></label>
                 
@@ -111,10 +111,147 @@
                     
                     </div>
                   </div>
+                  <div class="col-lg-6">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Product Video Link: <span class="tx-danger"></span></label>
+                
+                        <input class="form-control" type="text"  name="video_link" placeholder="Enter product video link"  >
+                    
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Meta Title <span class="tx-danger"></span></label>
+                
+                        <input class="form-control" type="text"  name="meta_title" placeholder="Enter meta title"  >
+                    
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Meta Keyword <span class="tx-danger"></span></label>
+                
+                        <input class="form-control" type="text"  name="meta_keyword" placeholder="Enter Meta Keywords" data-role="tagsinput" >
+                    
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Meta Description<span class="tx-danger"></span></label>
+                
+                       <textarea name="meta_description" class="form-control" cols="30" rows="10"></textarea>
+                    
+                    </div>
+                  </div>
+                  
+<br>
+
+                  <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Image One (Main Thumbnail): <span class="tx-danger"></span></label>
+                        <label class="custom-file">
+                          <input type="file" id="file" name="image_one" class="custom-file-input">
+                          <span class="custom-file-control"></span>
+                        </label>
+                    
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Image two : <span class="tx-danger"></span></label>
+                        <label class="custom-file">
+                          <input type="file" id="file" name="image_two" class="custom-file-input">
+                          <span class="custom-file-control"></span>
+                        </label>
+                    
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Image three: <span class="tx-danger"></span></label>
+                        <label class="custom-file">
+                          <input type="file" id="file" name="image_three" class="custom-file-input">
+                          <span class="custom-file-control"></span>
+                        </label>
+                    
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Image Four: <span class="tx-danger"></span></label>
+                        <label class="custom-file">
+                          <input type="file" id="file" name="image_four" class="custom-file-input">
+                          <span class="custom-file-control"></span>
+                        </label>
+                    
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Image five: <span class="tx-danger"></span></label>
+                        <label class="custom-file">
+                          <input type="file" id="file" name="image_five" class="custom-file-input">
+                          <span class="custom-file-control"></span>
+                        </label>
+                    
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Image Six: <span class="tx-danger"></span></label>
+                        <label class="custom-file">
+                          <input type="file" id="file" name="image_six" class="custom-file-input">
+                          <span class="custom-file-control"></span>
+                        </label>
+                    
+                    </div>
+                  </div>
+                
+                
               </div><!-- row -->
-              
+              <hr>
+              <br>
+              <div class="row">
+<div class="col-lg-4">
+  <label class="ckbox">
+    <input type="checkbox" name="main_slider" value="1">
+    <span>Main Slider</span>
+  </label>
+</div>
+<div class="col-lg-4">
+  <label class="ckbox">
+    <input type="checkbox" name="mid_slider" value="1">
+    <span>Mid Slider</span>
+  </label>
+</div>
+<div class="col-lg-4">
+  <label class="ckbox">
+    <input type="checkbox" name="hot_deals" value="1">
+    <span>Hot Deals</span>
+  </label>
+</div>
+<div class="col-lg-4">
+  <label class="ckbox">
+    <input type="checkbox" name="best_rated" value="1">
+    <span>Best Rated</span>
+  </label>
+</div>
+<div class="col-lg-4">
+  <label class="ckbox">
+    <input type="checkbox" name="trend" value="1">
+    <span>Trend</span>
+  </label>
+</div>
+<div class="col-lg-4">
+  <label class="ckbox">
+    <input type="checkbox" name="	hot_new" value="1">
+    <span>Hot New</span>
+  </label>
+</div>
+              </div><br>
               <div class="form-layout-footer">
-                <button class="btn btn-info mg-r-5">Submit Form</button>
+                <button class="btn btn-info mg-r-5">Submit </button>
                 <button class="btn btn-secondary">Cancel</button>
               </div><!-- form-layout-footer -->
             </div><!-- form-layout -->
