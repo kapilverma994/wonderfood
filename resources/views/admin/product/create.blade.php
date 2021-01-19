@@ -1,6 +1,6 @@
 @extends('admin.admin_layout')
 
-<link href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet"/>
+
 
 @section('admin_content')
     
@@ -95,15 +95,24 @@
                     
                     </div>
                   </div> 
-                  <div class="col-lg-4">
+                  <div class="col-lg-12">
                     <div class="form-group mg-b-10-force">
                         <label class="form-control-label">Product Description: <span class="tx-danger">*</span></label>
                  <textarea name=""  cols="30" name="product_details" id="summernote" class="form-control" rows="10"></textarea>
                     
                     </div>
                   </div> 
+                  
+                  <div class="col-lg-8">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Product Tags: <span class="tx-danger">*</span></label>
+                
+                        <input class="form-control" type="text"  name="tags" id="tag" data-role="tagsinput" >
+                    
+                    </div>
+                  </div>
               </div><!-- row -->
-  
+              
               <div class="form-layout-footer">
                 <button class="btn btn-info mg-r-5">Submit Form</button>
                 <button class="btn btn-secondary">Cancel</button>
