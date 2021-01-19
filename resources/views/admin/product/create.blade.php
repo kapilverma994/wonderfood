@@ -44,10 +44,9 @@
                     <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
                     <select class="form-control select2" data-placeholder="Choose country" name="category_id">
                       <option label="">Choose Category</option>
-                      <option value="USA">United States of America</option>
-                      <option value="UK">United Kingdom</option>
-                      <option value="China">China</option>
-                      <option value="Japan">Japan</option>
+                      @foreach($categories as $cat)
+                      <option value="{{$cat->id}}">{{$cat->category_name}}</option>
+                   @endforeach
                     </select>
                   </div>
                 </div>
@@ -66,10 +65,10 @@
                       <label class="form-control-label">Brand: <span class="tx-danger">*</span></label>
                       <select class="form-control select2" data-placeholder="Choose country" name="brand_id">
                         <option label="Choose Brand"></option>
-                        <option value="USA">United States of America</option>
-                        <option value="UK">United Kingdom</option>
-                        <option value="China">China</option>
-                        <option value="Japan">Japan</option>
+                        @foreach($brands as $brand)
+                        <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
+                        @endforeach
+                       
                       </select>
                     </div>
                   </div>    

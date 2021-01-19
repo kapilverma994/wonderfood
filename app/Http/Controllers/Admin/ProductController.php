@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Admin\Product;
+use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
     /**
@@ -29,7 +30,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.product.create');
+        $categories=DB::table('categories')->get();
+        $brands=DB::table('brands')->get();
+        return view('admin.product.create',compact('categories','brands'));
     }
 
     /**
