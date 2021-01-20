@@ -52,4 +52,5 @@ Route::resource('coupans', 'Admin\Category\CoupanController');
 Route::post('store/newsletter', 'FrontendController@storeletter')->name('store.newsletter');
 
 //Products
+Route::get('/get/subcategory/{category_id}','Admin\ProductController@get_sub');
 Route::resource('products', 'Admin\ProductController');

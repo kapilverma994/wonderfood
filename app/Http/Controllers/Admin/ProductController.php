@@ -45,7 +45,11 @@ class ProductController extends Controller
     {
         //
     }
-
+    public function get_sub($cat_id)
+    {
+        $sub_cat=DB::table('subcategories')->where('category_id',$cat_id)->get();
+        return response()->json($sub_cat);
+    }
     /**
      * Display the specified resource.
      *

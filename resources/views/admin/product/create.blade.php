@@ -150,8 +150,9 @@
                     <div class="form-group mg-b-10-force">
                         <label class="form-control-label">Image One (Main Thumbnail): <span class="tx-danger"></span></label>
                         <label class="custom-file">
-                          <input type="file" id="file" name="image_one" class="custom-file-input">
+                          <input type="file" id="file" name="image_one" class="custom-file-input" onchange="readURL(this)">
                           <span class="custom-file-control"></span>
+                          <img src="#" id="one" alt="">
                         </label>
                     
                     </div>
@@ -160,8 +161,9 @@
                     <div class="form-group mg-b-10-force">
                         <label class="form-control-label">Image two : <span class="tx-danger"></span></label>
                         <label class="custom-file">
-                          <input type="file" id="file" name="image_two" class="custom-file-input">
+                          <input type="file" id="file" name="image_two" class="custom-file-input" onchange="readURL2(this)">
                           <span class="custom-file-control"></span>
+                          <img src="#" id="two" alt="">
                         </label>
                     
                     </div>
@@ -170,8 +172,9 @@
                     <div class="form-group mg-b-10-force">
                         <label class="form-control-label">Image three: <span class="tx-danger"></span></label>
                         <label class="custom-file">
-                          <input type="file" id="file" name="image_three" class="custom-file-input">
+                          <input type="file" id="file" name="image_three" class="custom-file-input"  onchange=" readURL3(this)">
                           <span class="custom-file-control"></span>
+                          <img src="#" id="three" alt="">
                         </label>
                     
                     </div>
@@ -180,8 +183,9 @@
                     <div class="form-group mg-b-10-force">
                         <label class="form-control-label">Image Four: <span class="tx-danger"></span></label>
                         <label class="custom-file">
-                          <input type="file" id="file" name="image_four" class="custom-file-input">
+                          <input type="file" id="file" name="image_four" class="custom-file-input" onchange=" readURL4(this)">
                           <span class="custom-file-control"></span>
+                          <img src="#" id="four" alt="">
                         </label>
                     
                     </div>
@@ -190,8 +194,9 @@
                     <div class="form-group mg-b-10-force">
                         <label class="form-control-label">Image five: <span class="tx-danger"></span></label>
                         <label class="custom-file">
-                          <input type="file" id="file" name="image_five" class="custom-file-input">
+                          <input type="file" id="file" name="image_five" class="custom-file-input" onchange=" readURL5(this)">
                           <span class="custom-file-control"></span>
+                          <img src="#" id="five" alt="">
                         </label>
                     
                     </div>
@@ -200,8 +205,9 @@
                     <div class="form-group mg-b-10-force">
                         <label class="form-control-label">Image Six: <span class="tx-danger"></span></label>
                         <label class="custom-file">
-                          <input type="file" id="file" name="image_six" class="custom-file-input">
+                          <input type="file" id="file" name="image_six" class="custom-file-input" onchange=" readURL6(this)">
                           <span class="custom-file-control"></span>
+                          <img src="#" id="six" alt="">
                         </label>
                     
                     </div>
@@ -268,5 +274,119 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
 
+  <script type="text/javascript">
+    $(document).ready(function(){
+   $('select[name="category_id"]').on('change',function(){
+        var category_id = $(this).val();
+        if (category_id) {
+          
+          $.ajax({
+            url: "{{ url('/get/subcategory/') }}/"+category_id,
+            type:"GET",
+            dataType:"json",
+            success:function(data) { 
+            var d =$('select[name="subcategory_id"]').empty();
+            $.each(data, function(key, value){
+            
+            $('select[name="subcategory_id"]').append('<option value="'+ value.id + '">' + value.subcategory_name + '</option>');
+            });
+            },
+          });
+        }else{
+          alert('danger');
+        }
+          });
+    });
+</script>
 
+
+<script type="text/javascript">
+function readURL(input){
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      $('#one')
+      .attr('src', e.target.result)
+      .width(80)
+      .height(80);
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
+
+<script type="text/javascript">
+function readURL2(input){
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      $('#two')
+      .attr('src', e.target.result)
+      .width(80)
+      .height(80);
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
+
+
+
+<script type="text/javascript">
+function readURL3(input){
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      $('#three')
+      .attr('src', e.target.result)
+      .width(80)
+      .height(80);
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
+
+<script type="text/javascript">
+  function readURL4(input){
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $('#four')
+        .attr('src', e.target.result)
+        .width(80)
+        .height(80);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  </script>
+  <script type="text/javascript">
+    function readURL5(input){
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          $('#five')
+          .attr('src', e.target.result)
+          .width(80)
+          .height(80);
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    </script>
+    <script type="text/javascript">
+      function readURL6(input){
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            $('#six')
+            .attr('src', e.target.result)
+            .width(80)
+            .height(80);
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+      </script>
   @endsection
