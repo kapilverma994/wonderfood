@@ -70,7 +70,16 @@ class ProductController extends Controller
        $pro->meta_keyword=$request->meta_keyword;
        $pro->meta_description=$request->meta_description	;
        $pro->tags=$request->$request->tags;
-    //    $pro->hot_new=$request->hot_new;
+       $image_one=$request->image_one;
+       $image_two=$request->image_two;
+       $image_three=$request->image_three;
+       $image_four=$request->image_four;
+       $image_five=$request->image_five;
+       $image_six=$request->image_six;
+
+if($image_one || $image_two || $image_three || $image_four || $image_five || $image_six){
+    $image_one_name=hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
+}
 
 
     }
