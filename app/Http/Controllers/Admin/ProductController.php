@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Admin\Product;
 use Illuminate\Support\Facades\DB;
+use Image;
 class ProductController extends Controller
 {
     /**
@@ -79,6 +80,9 @@ class ProductController extends Controller
 
 if($image_one || $image_two || $image_three || $image_four || $image_five || $image_six){
     $image_one_name=hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
+    
+
+
 }
 
 
