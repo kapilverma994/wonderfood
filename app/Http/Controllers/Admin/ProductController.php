@@ -46,7 +46,7 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
+        
   
        $pro=new Product();
        $pro->category_id=$request->category_id;
@@ -70,7 +70,7 @@ class ProductController extends Controller
        $pro->meta_title=$request->meta_title;
        $pro->meta_keyword=$request->meta_keyword;
        $pro->meta_description=$request->meta_description	;
-       $pro->tags=$request->$request->tags;
+       $pro->tags=$request->tags;
        $image_one=$request->image_one;
        $image_two=$request->image_two;
        $image_three=$request->image_three;
@@ -78,12 +78,16 @@ class ProductController extends Controller
        $image_five=$request->image_five;
        $image_six=$request->image_six;
 
-if($image_one || $image_two || $image_three || $image_four || $image_five || $image_six){
+if($image_one){
     $image_one_name=hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
     
+Image::make($image_one)->resize(300,300)->save('public/media/products/'.$image_one_name);
+// $pro->image_one="media/products/".$image_one;
+
 
 
 }
+
 
 
     }
