@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\Admin\Product;
 use Illuminate\Support\Facades\DB;
 use Image;
+use Illuminate\Support\Str;
 class ProductController extends Controller
 {
     /**
@@ -53,6 +54,8 @@ class ProductController extends Controller
        $pro->subcategory_id=$request->subcategory_id;
        $pro->brand_id=$request->brand_id;
        $pro->product_name=$request->product_name;
+       $slug = Str::of($request->product_name)->slug('-');
+       $pro->slug=$slug;
        $pro->product_details=$request->product_details;
        $pro->product_code=$request->product_code;
        $pro->quantity=$request->quantity;
@@ -81,12 +84,41 @@ class ProductController extends Controller
 if($image_one){
     $image_one_name=hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
     
-Image::make($image_one)->resize(300,300)->save('public/media/products/'.$image_one_name);
-// $pro->image_one="media/products/".$image_one;
-
-
-
+ Image::make($image_one)->resize(300,300)->save('media/products/'.$image_one_name);
+ $pro->image_one=$image_one_name;
 }
+if($image_two){
+    $image_two_name=hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
+    
+ Image::make($image_two)->resize(300,300)->save('media/products/'.$image_two_name);
+ $pro->image_two=$image_two_name;
+}
+if($image_three){
+    $image_three_name=hexdec(uniqid()).'.'.$image_three->getClientOriginalExtension();
+    
+ Image::make($image_three)->resize(300,300)->save('media/products/'.$image_three_name);
+ $pro->image_three=$image_three_name;
+}
+if($image_four){
+    $image_four_name=hexdec(uniqid()).'.'.$image_four->getClientOriginalExtension();
+    
+ Image::make($image_four)->resize(300,300)->save('media/products/'.$image_four_name);
+ $pro->image_four=$image_four_name;
+}
+if($image_five){
+    $image_five_name=hexdec(uniqid()).'.'.$image_five->getClientOriginalExtension();
+    
+ Image::make($image_five)->resize(300,300)->save('media/products/'.$image_five_name);
+ $pro->image_five=$image_five_name;
+}
+if($image_six){
+    $image_six_name=hexdec(uniqid()).'.'.$image_six->getClientOriginalExtension();
+    
+ Image::make($image_six)->resize(300,300)->save('media/products/'.$image_six_name);
+ $pro->image_six=$image_six_name;
+}
+$pro->save();
+
 
 
 

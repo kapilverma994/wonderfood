@@ -97,7 +97,7 @@
                   <div class="col-lg-12">
                     <div class="form-group mg-b-10-force">
                         <label class="form-control-label">Product Description: <span class="tx-danger">*</span></label>
-                 <textarea name=""  cols="30" name="product_details" id="summernote" class="form-control" rows="10"></textarea>
+                 <textarea  cols="30" name="product_details" id="summernote" class="form-control" rows="10"></textarea>
                     
                     </div>
                    
