@@ -53,9 +53,9 @@
               </td>
                 <td>
                    @if ($row->status==1)
-                   <a href="{{url('/deactive/product',$row->id)}}" class="btn btn-sm btn-danger"><i class="fa fa-thumbs-down"></i></a>
+                   <a href="{{url('/deactive/product',$row->id)}}" title="Deactive" class="btn btn-sm btn-danger"><i class="fa fa-thumbs-down"></i></a>
                    @else 
-                   <a href="{{url('active/product',$row->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-thumbs-up"></i></a>
+                   <a href="{{url('active/product',$row->id)}}" title="Active" class="btn btn-sm btn-primary"><i class="fa fa-thumbs-up"></i></a>
                    @endif
                    
                     <a href="{{route('products.edit',$row->id)}}" class="btn btn-sm btn-secondary"><i class="fa fa-eye"></i></a>
