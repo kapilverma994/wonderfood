@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\Admin\Product;
 use Illuminate\Support\Facades\DB;
 use Image;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 class ProductController extends Controller
 {
@@ -86,7 +87,7 @@ class ProductController extends Controller
 if($image_one){
     $image_one_name=hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
     
- Image::make($image_one)->resize(300,300)->save('media/products/'.$image_one_name);
+ Image::make($image_one)->resize(300,300)->save(public_path('media/products/'.$image_one_name));
  $pro->image_one=$image_one_name;
 }
 if($image_two){
@@ -121,6 +122,8 @@ if($image_six){
 }
 $pro->save();
 
+Toastr()->success('Product Added successfully');
+return redirect()->route('products.index');
 
 
 
@@ -175,7 +178,40 @@ $pro->save();
      */
     public function destroy($id)
     {
-        //
+       
+        $pro=Product::find($id);
+        $one=$pro->image_one;
+    
+        $two=$pro->image_two;
+        $three=$pro->image_three;
+        $four=$pro->image_four;
+        $five=$pro->image_five;
+        $six=$pro->image_six;
+   $path="media/products/";
+
+       if($one){
+           unlink($path.$one);
+       }
+       if($two){
+        unlink($path.$two);
+       }
+       if($three){
+        unlink($path.$three);
+       }
+       if($four){
+        unlink($path.$four);
+       }
+       if($five){
+        unlink($path.$five);
+       }
+       if($six){
+        unlink($path.$six);
+       }
+
+        $pro->delete();
+        Toastr()->success('Product Deleted successfully');
+        return redirect()->back();
+  
     }
     public function inactive_product($id){
         $pro=Product::find($id);
