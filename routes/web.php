@@ -53,4 +53,6 @@ Route::post('store/newsletter', 'FrontendController@storeletter')->name('store.n
 
 //Products
 Route::get('/get/subcategory/{category_id}','Admin\ProductController@get_sub');
+Route::get('/deactive/product/{product_id}','Admin\ProductController@inactive_product');
+Route::get('active/product/{product_id}','Admin\ProductController@active_product');
 Route::resource('products', 'Admin\ProductController');

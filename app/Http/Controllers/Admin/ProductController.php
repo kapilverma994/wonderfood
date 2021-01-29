@@ -22,7 +22,9 @@ class ProductController extends Controller
     }
     public function index()
     {
-        //
+        $products=DB::table('products')->join('categories','products.category_id','categories.id')
+        ->join('brands','products.brand_id','brands.id')->select('products.*','categories.category_name','brands.brand_name')->get();
+        return view('admin.product.index',compact('products'));
     }
 
     /**
@@ -174,5 +176,21 @@ $pro->save();
     public function destroy($id)
     {
         //
+    }
+    public function inactive_product($id){
+        $pro=Product::find($id);
+        $pro->status=0;
+        $pro->save();
+        Toastr()->success('Product Inactive successfully');
+        return redirect()->back();
+
+    }
+    public function active_product($id){
+        $pro=Product::find($id);
+        $pro->status=1;
+        $pro->save();
+        Toastr()->success('Product active successfully');
+        return redirect()->back();
+
     }
 }
