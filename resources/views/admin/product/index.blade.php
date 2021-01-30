@@ -58,7 +58,7 @@
                    <a href="{{url('active/product',$row->id)}}" title="Active" class="btn btn-sm btn-primary"><i class="fa fa-thumbs-up"></i></a>
                    @endif
                    
-                    <a href="{{route('products.edit',$row->id)}}" title="Show Product" class="btn btn-sm btn-secondary"><i class="fa fa-eye"></i></a>
+                    <a href="{{route('products.show',$row->id)}}" title="Show Product" class="btn btn-sm btn-secondary"><i class="fa fa-eye"></i></a>
                     <a href="{{route('products.edit',$row->id)}}" title="Edit" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
  
                <form action="{{route('products.destroy',$row->id)}}" style="display: inline-block" method="post" onsubmit="return confirm('Are you sure ?')">

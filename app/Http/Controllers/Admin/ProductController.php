@@ -87,7 +87,7 @@ class ProductController extends Controller
 if($image_one){
     $image_one_name=hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
     
- Image::make($image_one)->resize(300,300)->save('media/products/'.$image_one_name);
+ Image::make($image_one)->resize(300,300)->save('public/media/products/'.$image_one_name);
  $pro->image_one=$image_one_name;
 }
 if($image_two){
@@ -144,7 +144,7 @@ return redirect()->route('products.index');
      */
     public function show($id)
     {
-        //
+        dd($id);
     }
 
     /**
