@@ -84,42 +84,47 @@ class ProductController extends Controller
        $image_five=$request->image_five;
        $image_six=$request->image_six;
 
+
 if($image_one){
     $image_one_name=hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
     
- Image::make($image_one)->resize(300,300)->save('media/products/'.$image_one_name);
+$image_one->storeAs('media/products',$image_one_name,'public');
  $pro->image_one=$image_one_name;
 }
 if($image_two){
-    $image_two_name=hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
+    $image_two_name=hexdec(uniqid()).'.'.$image_two->getClientOriginalExtension();
     
- Image::make($image_two)->resize(300,300)->save('media/products/'.$image_two_name);
+$image_two->storeAs('media/products',$image_two_name,'public');
  $pro->image_two=$image_two_name;
 }
 if($image_three){
     $image_three_name=hexdec(uniqid()).'.'.$image_three->getClientOriginalExtension();
     
- Image::make($image_three)->resize(300,300)->save('media/products/'.$image_three_name);
+$image_three->storeAs('media/products',$image_three_name,'public');
  $pro->image_three=$image_three_name;
 }
 if($image_four){
     $image_four_name=hexdec(uniqid()).'.'.$image_four->getClientOriginalExtension();
     
- Image::make($image_four)->resize(300,300)->save('media/products/'.$image_four_name);
+$image_four->storeAs('media/products',$image_four_name,'public');
  $pro->image_four=$image_four_name;
 }
 if($image_five){
     $image_five_name=hexdec(uniqid()).'.'.$image_five->getClientOriginalExtension();
     
- Image::make($image_five)->resize(300,300)->save('media/products/'.$image_five_name);
+$image_five->storeAs('media/products',$image_five_name,'public');
  $pro->image_five=$image_five_name;
 }
 if($image_six){
     $image_six_name=hexdec(uniqid()).'.'.$image_six->getClientOriginalExtension();
     
- Image::make($image_six)->resize(300,300)->save('media/products/'.$image_six_name);
+$image_six->storeAs('media/products',$image_six_name,'public');
  $pro->image_six=$image_six_name;
 }
+
+
+
+
 $pro->save();
 
 Toastr()->success('Product Added successfully');
@@ -155,7 +160,9 @@ return redirect()->route('products.index');
      */
     public function edit($id)
     {
-        //
+        $pro=Product::find($id);
+        
+        return view('admin.product.edit',compact('pro'));
     }
 
     /**
@@ -188,25 +195,9 @@ return redirect()->route('products.index');
         $five=$pro->image_five;
         $six=$pro->image_six;
    $path="media/products/";
+   Storage::disk('public')->delete([$path.$one,$path.$two,$path.$three,$path.$four,$path.$five,$path.$six]);
 
-       if($one){
-           unlink($path.$one);
-       }
-       if($two){
-        unlink($path.$two);
-       }
-       if($three){
-        unlink($path.$three);
-       }
-       if($four){
-        unlink($path.$four);
-       }
-       if($five){
-        unlink($path.$five);
-       }
-       if($six){
-        unlink($path.$six);
-       }
+
 
         $pro->delete();
         Toastr()->success('Product Deleted successfully');
