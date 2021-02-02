@@ -24,6 +24,7 @@ $brands=DB::table('brands')->get();
             {{-- <p class="mg-b-20 mg-sm-b-30">A form with a label on top of each form control.</p> --}}
   <form action="{{route('products.update',$pro->id)}}" method="post" enctype="multipart/form-data">
     @csrf
+    @method('PUT')
             <div class="form-layout">
               <div class="row mg-b-25">
                 <div class="col-lg-4">
@@ -160,7 +161,7 @@ $brands=DB::table('brands')->get();
                         <label class="custom-file">
                           <input type="file" id="file" name="image_one" class="custom-file-input" onchange="readURL(this)">
                           <span class="custom-file-control"></span>
-                          <img src="#" id="one" alt="">
+                          <img src="{{asset('storage/media/products/'.$pro->image_one)}} " height="70px" width="80px" alt=" " id="one" alt="">
                         </label>
                     
                     </div>
@@ -171,7 +172,12 @@ $brands=DB::table('brands')->get();
                         <label class="custom-file">
                           <input type="file" id="file" name="image_two" class="custom-file-input" onchange="readURL2(this)">
                           <span class="custom-file-control"></span>
-                          <img src="#" id="two" alt="">
+                          @if($pro->image_two)
+                          <img src="{{asset('storage/media/products/'.$pro->image_two)}}" height="70px" width="80px" id="two" alt="">
+                          @else
+                          <img src="#"  id="two" alt="">
+                          @endif
+                         
                         </label>
                     
                     </div>
@@ -182,7 +188,12 @@ $brands=DB::table('brands')->get();
                         <label class="custom-file">
                           <input type="file" id="file" name="image_three" class="custom-file-input"  onchange=" readURL3(this)">
                           <span class="custom-file-control"></span>
-                          <img src="#" id="three" alt="">
+                          @if($pro->image_three)
+                          <img src="{{asset('storage/media/products/'.$pro->image_three)}}" height="70px" width="80px" id="three" alt="">
+                          @else 
+                          <img src="#"  id="three" alt="">
+
+                          @endif
                         </label>
                     
                     </div>
@@ -193,7 +204,11 @@ $brands=DB::table('brands')->get();
                         <label class="custom-file">
                           <input type="file" id="file" name="image_four" class="custom-file-input" onchange=" readURL4(this)">
                           <span class="custom-file-control"></span>
-                          <img src="#" id="four" alt="">
+                          @if($pro->image_four)
+                          <img src="{{asset('storage/media/products/'.$pro->image_four)}}" height="70px" width="80px" id="four" alt="">
+                        @else 
+                        <img src="#"  id="four" alt="">
+                        @endif
                         </label>
                     
                     </div>
@@ -204,7 +219,11 @@ $brands=DB::table('brands')->get();
                         <label class="custom-file">
                           <input type="file" id="file" name="image_five" class="custom-file-input" onchange=" readURL5(this)">
                           <span class="custom-file-control"></span>
-                          <img src="#" id="five" alt="">
+                          @if($pro->image_five)
+                          <img src="{{asset('storage/media/products/'.$pro->image_five)}}" height="70px" width="80px" id="five" alt="">
+                          @else 
+                          <img src="#"  id="five" alt="">
+                          @endif
                         </label>
                     
                     </div>
@@ -215,7 +234,11 @@ $brands=DB::table('brands')->get();
                         <label class="custom-file">
                           <input type="file" id="file" name="image_six" class="custom-file-input" onchange=" readURL6(this)">
                           <span class="custom-file-control"></span>
-                          <img src="#" id="six" alt="">
+                          @if($pro->image_six)
+                          <img src="{{asset('storage/media/products/'.$pro->image_six)}}" height="70px" width="80px" id="six" alt="">
+                      @else 
+                      <img src="#"  id="six" alt="">
+                      @endif
                         </label>
                     
                     </div>
@@ -240,25 +263,25 @@ $brands=DB::table('brands')->get();
 </div>
 <div class="col-lg-4">
   <label class="ckbox">
-    <input type="checkbox" name="hot_deals" value="1" >
+    <input type="checkbox" name="hot_deals" value="1" @if($pro->hot_deals==1) checked @endif >
     <span>Hot Deals</span>
   </label>
 </div>
 <div class="col-lg-4">
   <label class="ckbox">
-    <input type="checkbox" name="best_rated" value="1">
+    <input type="checkbox" name="best_rated"  value="1" @if($pro->best_rated==1) checked @endif >
     <span>Best Rated</span>
   </label>
 </div>
 <div class="col-lg-4">
   <label class="ckbox">
-    <input type="checkbox" name="trend" value="1">
+    <input type="checkbox" name="trend" value="1" @if($pro->trend==1) checked @endif >
     <span>Trend</span>
   </label>
 </div>
 <div class="col-lg-4">
   <label class="ckbox">
-    <input type="checkbox" name="hot_new" value="1">
+    <input type="checkbox" name="hot_new" value="1" @if($pro->hot_new==1) checked @endif>
     <span>Hot New</span>
   </label>
 </div>
