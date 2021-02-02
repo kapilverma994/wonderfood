@@ -9,7 +9,7 @@ $categories=DB::table('categories')->get();
 $subcategories=DB::table('subcategories')->get();
 $brands=DB::table('brands')->get();
 @endphp
-    
+   
  <!-- ########## START: MAIN PANEL ########## -->
  <div class="sl-mainpanel">
     <nav class="breadcrumb sl-breadcrumb">
@@ -199,7 +199,7 @@ $brands=DB::table('brands')->get();
                     </div>
                   </div>
                   <div class="col-lg-4">
-                    <div class="form-group mg-b-10-force">
+                    <div class="form-group mt-5">
                         <label class="form-control-label">Image Four: <span class="tx-danger"></span></label>
                         <label class="custom-file">
                           <input type="file" id="file" name="image_four" class="custom-file-input" onchange=" readURL4(this)">
@@ -214,7 +214,7 @@ $brands=DB::table('brands')->get();
                     </div>
                   </div>
                   <div class="col-lg-4">
-                    <div class="form-group mg-b-10-force">
+                    <div class="form-group mt-5">
                         <label class="form-control-label">Image five: <span class="tx-danger"></span></label>
                         <label class="custom-file">
                           <input type="file" id="file" name="image_five" class="custom-file-input" onchange=" readURL5(this)">
@@ -229,7 +229,7 @@ $brands=DB::table('brands')->get();
                     </div>
                   </div>
                   <div class="col-lg-4">
-                    <div class="form-group mg-b-10-force">
+                    <div class="form-group mt-5">
                         <label class="form-control-label">Image Six: <span class="tx-danger"></span></label>
                         <label class="custom-file">
                           <input type="file" id="file" name="image_six" class="custom-file-input" onchange=" readURL6(this)">
@@ -340,6 +340,7 @@ function readURL(input){
       .attr('src', e.target.result)
       .width(80)
       .height(80);
+      
     };
     reader.readAsDataURL(input.files[0]);
   }
