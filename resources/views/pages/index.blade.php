@@ -5,7 +5,7 @@
 
     @php 
 
-$featured=DB::table('products')->where('status',1)->OrderBy('id','desc')->limit(12)->get();
+$featured=DB::table('products')->where('status',1)->OrderBy('id','desc')->limit(8)->get();
 
 $trend=DB::table('products')->where('status',1)->where('trend',1)->OrderBy('id','desc')->limit(8)->get();
 $best_rated=DB::table('products')->where('status',1)->where('best_rated',1)->OrderBy('id','desc')->limit(8)->get();
@@ -249,7 +249,7 @@ $best_rated=DB::table('products')->where('status',1)->where('best_rated',1)->Ord
                                         <div class="product_content">
                                             <div class="product_price discount">
                                                 @if($row->discount_price==NULL)
-                                             <h3>{{$row->selling_price}}</h3>
+                                             <h3>${{$row->selling_price}}</h3>
                                                 @else
                                                 ${{$row->discount_price}}<span>${{$row->selling_price}}</span>
                                             @endif
