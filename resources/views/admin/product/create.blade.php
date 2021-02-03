@@ -90,9 +90,14 @@
                   <div class="col-lg-4">
                     <div class="form-group mg-b-10-force">
                         <label class="form-control-label">Selling Price: <span class="tx-danger">*</span></label>
-                        <input class="form-control" type="text"  name="selling_price" placeholder="Price" >
+                        <input class="form-control" type="text"  name="selling_price" placeholder="Price" required >
                     
                     </div>
+                    <div class="form-group mg-b-10-force">
+                      <label class="form-control-label">Discount Price: <span class="tx-danger">*</span></label>
+                      <input class="form-control" type="text"  name="discount_price" placeholder="Discount Price" >
+                  
+                  </div>
                   </div> 
                   <div class="col-lg-12">
                     <div class="form-group mg-b-10-force">

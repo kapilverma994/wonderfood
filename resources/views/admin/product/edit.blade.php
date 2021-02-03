@@ -100,8 +100,13 @@ $brands=DB::table('brands')->get();
                     <div class="form-group mg-b-10-force">
                         <label class="form-control-label">Selling Price: <span class="tx-danger">*</span></label>
                         <input class="form-control" type="text"  value="{{$pro->selling_price}}" name="selling_price" placeholder="Price" >
-                    
+                       
                     </div>
+                    <div class="form-group mg-b-10-force">
+                      <label class="form-control-label">Discount Price: <span class="tx-danger">*</span></label>
+                      <input class="form-control" type="text"  name="discount_price" placeholder="Discount Price" value={{$pro->discount_price}} >
+                  
+                  </div>
                   </div> 
                   <div class="col-lg-12">
                     <div class="form-group mg-b-10-force">
