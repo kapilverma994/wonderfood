@@ -249,9 +249,9 @@ $best_rated=DB::table('products')->where('status',1)->where('best_rated',1)->Ord
                                         <div class="product_content">
                                             <div class="product_price discount">
                                                 @if($row->discount_price==NULL)
-                                             <h3>${{$row->selling_price}}</h3>
+                                             ${{$row->selling_price}}
                                                 @else
-                                                ${{$row->discount_price}}<span>${{$row->selling_price}}</span>
+                                                ${{$row->discount_price}}<span class="">${{$row->selling_price}}</span>
                                             @endif
                                             </div>
                                             <div class="product_name"><div><a href="product.html">{{$row->product_name}}</a></div></div>
