@@ -266,7 +266,14 @@ $best_rated=DB::table('products')->where('status',1)->where('best_rated',1)->Ord
                                         </div>
                                         <div class="product_fav"><i class="fas fa-heart"></i></div>
                                         <ul class="product_marks">
-                                            <li class="product_mark product_discount">-25%</li>
+                                            @if($row->discount_price!=NULL)
+                                            @php 
+                                             $discount=($row->selling_price-$row->discount_price)/$row->selling_price*100;
+                                           
+                                            @endphp
+                                            <li class="product_mark product_discount">{{intval($discount)}}%</li>
+                                            @endif
+                                        
                                             <li class="product_mark product_new">new</li>
                                         </ul>
                                     </div>

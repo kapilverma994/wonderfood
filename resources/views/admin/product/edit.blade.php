@@ -30,7 +30,7 @@ $brands=DB::table('brands')->get();
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label">Product Name: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="product_name" value={{$pro->product_name}} placeholder="Enter product name">
+                    <input class="form-control" type="text" name="product_name" value="{{$pro->product_name}}" autocomplete="off">
                   </div>
                 </div><!-- col-4 -->
                 <div class="col-lg-4">
