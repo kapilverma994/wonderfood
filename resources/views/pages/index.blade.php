@@ -9,6 +9,7 @@ $featured=DB::table('products')->where('status',1)->OrderBy('id','desc')->limit(
 
 $trend=DB::table('products')->where('status',1)->where('trend',1)->OrderBy('id','desc')->limit(8)->get();
 $best_rated=DB::table('products')->where('status',1)->where('best_rated',1)->OrderBy('id','desc')->limit(8)->get();
+$hot_deals=DB::table('products')->join('brands','products.brand_id','brands.id')->select('products.*','brands.brand_name')->where('products.status',1)->where('products.hot_deals',1)->orderBy('id','desc')->limit(5)->get();
 @endphp
 <div class="characteristics">
     <div class="container">
@@ -75,27 +76,34 @@ $best_rated=DB::table('products')->where('status',1)->where('best_rated',1)->Ord
                 <!-- Deals -->
 
                 <div class="deals">
-                    <div class="deals_title">Deals of the Week</div>
+                    <div class="deals_title">Deals of the Day</div>
                     <div class="deals_slider_container">
                         
                         <!-- Deals Slider -->
                         <div class="owl-carousel owl-theme deals_slider">
                             
                             <!-- Deals Item -->
+                            @foreach($hot_deals as $hot)
                             <div class="owl-item deals_item">
-                                <div class="deals_image"><img src="{{ asset('frontend/images/deals.png')}}" alt=""></div>
+                                <div class="deals_image"><img src="{{ asset('storage/media/products/'.$hot->image_one)}}" alt=""></div>
                                 <div class="deals_content">
                                     <div class="deals_info_line d-flex flex-row justify-content-start">
-                                        <div class="deals_item_category"><a href="#">Headphones</a></div>
-                                        <div class="deals_item_price_a ml-auto">$300</div>
+                                        <div class="deals_item_category"><a href="#">{{$hot->brand_name}}</a></div>
+                                        @if($hot->discount_price!=NULL)
+                                        <div class="deals_item_price_a ml-auto">${{$hot->selling_price}}</div>
+                                        @endif
                                     </div>
                                     <div class="deals_info_line d-flex flex-row justify-content-start">
-                                        <div class="deals_item_name">Beoplay H7</div>
-                                        <div class="deals_item_price ml-auto">$225</div>
+                                        <div class="deals_item_name">{{$hot->product_name}}</div>
+                                     @if($hot->discount_price==NULL)
+                                        <div class="deals_item_price ml-auto">${{$hot->selling_price}}</div>
+                                        @else 
+                                        <div class="deals_item_price ml-auto">${{$hot->discount_price}}</div>
+                                        @endif
                                     </div>
                                     <div class="available">
                                         <div class="available_line d-flex flex-row justify-content-start">
-                                            <div class="available_title">Available: <span>6</span></div>
+                                            <div class="available_title">Available: <span>{{$hot->quantity}}</span></div>
                                             <div class="sold_title ml-auto">Already sold: <span>28</span></div>
                                         </div>
                                         <div class="available_bar"><span style="width:17%"></span></div>
@@ -124,95 +132,8 @@ $best_rated=DB::table('products')->where('status',1)->where('best_rated',1)->Ord
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Deals Item -->
-                            <div class="owl-item deals_item">
-                                <div class="deals_image"><img src="{{ asset('frontend/images/deals.png')}}" alt=""></div>
-                                <div class="deals_content">
-                                    <div class="deals_info_line d-flex flex-row justify-content-start">
-                                        <div class="deals_item_category"><a href="#">Headphones</a></div>
-                                        <div class="deals_item_price_a ml-auto">$300</div>
-                                    </div>
-                                    <div class="deals_info_line d-flex flex-row justify-content-start">
-                                        <div class="deals_item_name">Beoplay H7</div>
-                                        <div class="deals_item_price ml-auto">$225</div>
-                                    </div>
-                                    <div class="available">
-                                        <div class="available_line d-flex flex-row justify-content-start">
-                                            <div class="available_title">Available: <span>6</span></div>
-                                            <div class="sold_title ml-auto">Already sold: <span>28</span></div>
-                                        </div>
-                                        <div class="available_bar"><span style="width:17%"></span></div>
-                                    </div>
-                                    <div class="deals_timer d-flex flex-row align-items-center justify-content-start">
-                                        <div class="deals_timer_title_container">
-                                            <div class="deals_timer_title">Hurry Up</div>
-                                            <div class="deals_timer_subtitle">Offer ends in:</div>
-                                        </div>
-                                        <div class="deals_timer_content ml-auto">
-                                            <div class="deals_timer_box clearfix" data-target-time="">
-                                                <div class="deals_timer_unit">
-                                                    <div id="deals_timer2_hr" class="deals_timer_hr"></div>
-                                                    <span>hours</span>
-                                                </div>
-                                                <div class="deals_timer_unit">
-                                                    <div id="deals_timer2_min" class="deals_timer_min"></div>
-                                                    <span>mins</span>
-                                                </div>
-                                                <div class="deals_timer_unit">
-                                                    <div id="deals_timer2_sec" class="deals_timer_sec"></div>
-                                                    <span>secs</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Deals Item -->
-                            <div class="owl-item deals_item">
-                                <div class="deals_image"><img src="{{ asset('frontend/images/deals.png')}}" alt=""></div>
-                                <div class="deals_content">
-                                    <div class="deals_info_line d-flex flex-row justify-content-start">
-                                        <div class="deals_item_category"><a href="#">Headphones</a></div>
-                                        <div class="deals_item_price_a ml-auto">$300</div>
-                                    </div>
-                                    <div class="deals_info_line d-flex flex-row justify-content-start">
-                                        <div class="deals_item_name">Beoplay H7</div>
-                                        <div class="deals_item_price ml-auto">$225</div>
-                                    </div>
-                                    <div class="available">
-                                        <div class="available_line d-flex flex-row justify-content-start">
-                                            <div class="available_title">Available: <span>6</span></div>
-                                            <div class="sold_title ml-auto">Already sold: <span>28</span></div>
-                                        </div>
-                                        <div class="available_bar"><span style="width:17%"></span></div>
-                                    </div>
-                                    <div class="deals_timer d-flex flex-row align-items-center justify-content-start">
-                                        <div class="deals_timer_title_container">
-                                            <div class="deals_timer_title">Hurry Up</div>
-                                            <div class="deals_timer_subtitle">Offer ends in:</div>
-                                        </div>
-                                        <div class="deals_timer_content ml-auto">
-                                            <div class="deals_timer_box clearfix" data-target-time="">
-                                                <div class="deals_timer_unit">
-                                                    <div id="deals_timer3_hr" class="deals_timer_hr"></div>
-                                                    <span>hours</span>
-                                                </div>
-                                                <div class="deals_timer_unit">
-                                                    <div id="deals_timer3_min" class="deals_timer_min"></div>
-                                                    <span>mins</span>
-                                                </div>
-                                                <div class="deals_timer_unit">
-                                                    <div id="deals_timer3_sec" class="deals_timer_sec"></div>
-                                                    <span>secs</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+@endforeach
+                   
                         </div>
 
                     </div>
@@ -405,6 +326,11 @@ $best_rated=DB::table('products')->where('status',1)->where('best_rated',1)->Ord
 
 <!-- Popular Categories -->
 
+@php 
+
+$cats=DB::table('categories')->orderBy('id','desc')->get();
+@endphp
+
 <div class="popular_categories">
     <div class="container">
         <div class="row">
@@ -415,7 +341,7 @@ $best_rated=DB::table('products')->where('status',1)->where('best_rated',1)->Ord
                         <div class="popular_categories_prev popular_categories_nav"><i class="fas fa-angle-left ml-auto"></i></div>
                         <div class="popular_categories_next popular_categories_nav"><i class="fas fa-angle-right ml-auto"></i></div>
                     </div>
-                    <div class="popular_categories_link"><a href="#">full catalog</a></div>
+                    {{-- <div class="popular_categories_link"><a href="#">full catalog</a></div> --}}
                 </div>
             </div>
             
@@ -426,44 +352,20 @@ $best_rated=DB::table('products')->where('status',1)->where('best_rated',1)->Ord
                     <div class="owl-carousel owl-theme popular_categories_slider">
 
                         <!-- Popular Categories Item -->
+                        @foreach($cats as $cat)
                         <div class="owl-item">
                             <div class="popular_category d-flex flex-column align-items-center justify-content-center">
                                 <div class="popular_category_image"><img src="{{ asset('frontend/images/popular_1.png')}}" alt=""></div>
-                                <div class="popular_category_text">Smartphones & Tablets</div>
+                                <div class="popular_category_text">{{$cat->category_name}}</div>
                             </div>
                         </div>
+                        @endforeach
 
-                        <!-- Popular Categories Item -->
-                        <div class="owl-item">
-                            <div class="popular_category d-flex flex-column align-items-center justify-content-center">
-                                <div class="popular_category_image"><img src="{{ asset('frontend/images/popular_2.png')}}" alt=""></div>
-                                <div class="popular_category_text">Computers & Laptops</div>
-                            </div>
-                        </div>
 
-                        <!-- Popular Categories Item -->
-                        <div class="owl-item">
-                            <div class="popular_category d-flex flex-column align-items-center justify-content-center">
-                                <div class="popular_category_image"><img src="{{ asset('frontend/images/popular_3.png')}}" alt=""></div>
-                                <div class="popular_category_text">Gadgets</div>
-                            </div>
-                        </div>
+                   
 
-                        <!-- Popular Categories Item -->
-                        <div class="owl-item">
-                            <div class="popular_category d-flex flex-column align-items-center justify-content-center">
-                                <div class="popular_category_image"><img src="{{ asset('frontend/images/popular_4.png')}}" alt=""></div>
-                                <div class="popular_category_text">Video Games & Consoles</div>
-                            </div>
-                        </div>
 
-                        <!-- Popular Categories Item -->
-                        <div class="owl-item">
-                            <div class="popular_category d-flex flex-column align-items-center justify-content-center">
-                                <div class="popular_category_image"><img src="{{ asset('frontend/images/popular_5.png')}}" alt=""></div>
-                                <div class="popular_category_text">Accessories</div>
-                            </div>
-                        </div>
+                   
 
                     </div>
                 </div>
