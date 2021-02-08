@@ -3,24 +3,26 @@
 @section('content')
 
 
+<div class="container">
+
 
  <div class="wrapper without_header_sidebar">
     <!-- contnet wrapper -->
     <div class="content_wrapper">
         <!-- page content -->
-        <div class="registration_page center_container">
-            <div class="center_content">
-                <div class="logo">
+        <div class="registration_page center_container row">
+            <div class="center_content col-lg-8">
+                {{-- <div class="logo">
                     <img src="{{asset('panel/assets/images/logo.png')}}" alt="" class="img-fluid">
-                </div>
+                </div> --}}
                 <form action="{{ route('register') }}"  method="post" >
                    @csrf
                     <div class="form-group icon_parent">
-                        <label for="uname">Username</label>
-                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <span class="icon_soon_bottom_right"><i class="fas fa-user"></i></span>  <label for="uname">Username</label>
+                        <input id="name" type="text" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                          
-                        <span class="icon_soon_bottom_right"><i class="fas fa-user"></i></span>
+                    
                         @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -28,9 +30,9 @@
                     @enderror   
                     </div>
       <div class="form-group icon_parent">
-                        <label for="email">E-mail</label>
+        <span class="icon_soon_bottom_right"><i class="fas fa-envelope"></i></span>  <label for="email">E-mail</label>
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                        <span class="icon_soon_bottom_right"><i class="fas fa-envelope"></i></span>
+                 
                         @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -40,10 +42,10 @@
                       
                     </div>
                     <div class="form-group icon_parent">
-                        <label for="password">Password</label>
+                      
+                        <span class="icon_soon_bottom_right"><i class="fas fa-unlock"></i></span>  <label for="password">Password</label>
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
    
-                        <span class="icon_soon_bottom_right"><i class="fas fa-unlock"></i></span>
                         @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -52,9 +54,9 @@
                       
                     </div>
                     <div class="form-group icon_parent">
-                        <label for="rtpassword">Re-type Password</label>
+                        <span class="icon_soon_bottom_right"><i class="fas fa-unlock"></i></span> <label for="rtpassword">Re-type Password</label>
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                        <span class="icon_soon_bottom_right"><i class="fas fa-unlock"></i></span>
+                       
                     </div>
                     <div class="form-group">
                         <a class="registration" href="{{route('login')}} ">Already have an account</a><br>
@@ -68,5 +70,5 @@
         </div>
     </div><!--/ content wrapper -->
 </div><!--/ wrapper -->
-
+</div>
 @endsection

@@ -8,9 +8,9 @@
             <!-- page content -->
             <div class="login_page center_container">
                 <div class="center_content">
-                    <div class="logo">
+                    {{-- <div class="logo">
                         <img src="{{asset('panel/assets/images/logo.png')}}" alt="" class="img-fluid">
-                    </div>
+                    </div> --}}
                     <form method="POST" class="d-block" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group icon_parent">
