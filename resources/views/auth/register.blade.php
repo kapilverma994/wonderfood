@@ -60,11 +60,11 @@
                     </div>
                     <div class="form-group">
                         <a class="registration" href="{{route('login')}} ">Already have an account</a><br>
-                        <button type="submit" class="btn btn-blue">Signup</button>
+                        <button type="submit" class="btn btn-primary">Signup</button>
                     </div>
                 </form>
                 <div class="footer">
-                    <p>Copyright &copy; 2020 <a href="https://easylearningbd.com/">easy Learning</a>. All rights reserved.</p>
+                    <p>Copyright &copy; 2020 <a href="https://wonderdevelopers.com/">wonder developer</a>. All rights reserved.</p>
                 </div>
             </div>
         </div>
