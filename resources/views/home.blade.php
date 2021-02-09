@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="{{route('user.logout')}}">Logout</a>
+
 <div class="contact_form">
     <div class="container">
         <div class="row">
@@ -49,8 +49,17 @@
                 <div class="card">
                     <img src="{{asset('frontend/images/banner_2_product.png')}}" class="card-img-top rounded-circle" alt="" height="80px" width="80px">
 <div class="card-body">
-    <h5 class="card-title text-center">Kapil</h5>
+    <h5 class="card-title text-center">{{Auth::user()->name}}</h5>
 
+</div>
+<ul class="list-group list-group-flush">
+<li class="list-group-item"> <a href="{{route('password.update')}}">Change Password</a>  </li>
+<li class="list-group-item">item</li>
+<li class="list-group-item">item</li>
+<li class="list-group-item">item</li>   
+</ul>
+<div class="card-body">
+<a href="{{route('user.logout')}}" class="btn btn-danger btn-block">Logout</a>
 </div>
                 </div>
 
