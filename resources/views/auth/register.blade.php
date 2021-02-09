@@ -19,11 +19,23 @@
                    @csrf
                     <div class="form-group icon_parent">
                         <span class="icon_soon_bottom_right"><i class="fas fa-user"></i></span>  <label for="uname">Username</label>
-                        <input id="name" type="text" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <input id="name" type="text" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="off" autofocus>
 
                                          
                     
                         @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror   
+                    </div>
+                    <div class="form-group icon_parent">
+                        <span class="icon_soon_bottom_right"><i class="fas fa-mobile-alt"></i></span>  <label for="uname">Mobile</label>
+                        <input id="phone" type="text" class="form-control  @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="off" autofocus>
+
+                                         
+                    
+                        @error('phone')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

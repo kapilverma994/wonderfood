@@ -39,18 +39,16 @@
                             </span>
                         @enderror
                         </div>
-                        <div class="form-group">
-                            <span class="checkmark"></span> <label class="chech_container">Remember me
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                             
-                            </label>
-                        </div>
+                      
                         <div class="form-group">
                             <a class="registration" href=" {{route('register')}}">Create new account</a><br>
-                            <a href=" {{route('password.request')}}" class="text-white">I forgot my password</a>
-                            <button type="submit" class="btn btn-primary float-left">Login</button>
+                            <a href=" {{route('password.request')}}" class="">I forgot my password</a>
+                         
                         </div>
+                        <button type="submit" class="btn btn-primary float-left">Login</button>
                     </form>
+                   <button class="btn btn-primary btn-lg btn-block " style="margin-top: 30px;">  <i class="fab fa-facebook" aria-hidden="true"></i> Login with Facebook</button>
+                    <button class="btn btn-danger btn-lg btn-block mt-3"><i class="fab fa-google-plus-g"></i> Login with Google</button>
                     <div class="footer">
                        <p>Copyright &copy; 2020 <a href="https://easylearningbd.com/">easy Learning</a>. All rights reserved.</p>
                     </div>
