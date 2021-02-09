@@ -45,20 +45,40 @@
                                             <li><a href="#">Japanese</a></li>
                                         </ul>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <a href="#">$ US dollar<i class="fas fa-chevron-down"></i></a>
                                         <ul>
                                             <li><a href="#">EUR Euro</a></li>
                                             <li><a href="#">GBP British Pound</a></li>
                                             <li><a href="#">JPY Japanese Yen</a></li>
                                         </ul>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                             <div class="top_bar_user">
                                 <div class="user_icon"><img src="{{ asset('frontend/images/user.svg')}}" alt=""></div>
+                                @guest 
                                 <div><a href="{{route('register')}}">Register</a></div>
                                 <div><a href="{{route('login')}}">Sign in</a></div>
+                                @else
+                                <div>
+                                <ul class="standard_dropdown top_bar_dropdown">
+                                    <li>
+                                        <a href="#">{{Auth::user()->name}}<i class="fas fa-chevron-down"></i></a>
+                                        <ul>
+                                            <li><a href="{{route('home')}}">Profile</a></li>
+                                            <li><a href="#">Change Password</a></li>
+                                            <li><a href="{{route('user.logout')}}">Logout</a></li>
+                                       
+                                        </ul>
+                                    </li>
+                               
+                                </ul> 
+                                </div>
+                                <!-- <div><a href="#">{{Auth::user()->name}}</a></div>
+                                <div><a href="{{route('user.logout')}}">Logout</a></div> -->
+                                @endguest
+                              
                             </div>
                         </div>
                     </div>
@@ -124,7 +144,7 @@
                             <div class="cart">
                                 <div class="cart_container d-flex flex-row align-items-center justify-content-end">
                                     <div class="cart_icon">
-                                        <img src="images/cart.png" alt="">
+                                        <img src="{{asset('frontend/images/cart.png')}}" alt="">
                                         <div class="cart_count"><span>10</span></div>
                                     </div>
                                     <div class="cart_content">
