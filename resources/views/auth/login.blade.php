@@ -45,7 +45,7 @@
                             <a href=" {{route('password.request')}}" class="">I forgot my password</a>
                          
                         </div>
-                        <button type="submit" class="btn btn-primary float-left">Login</button>
+                        <button type="submit" class="btn btn-primary float-left mb-4">Login</button>
                     </form>
                    <button class="btn btn-primary btn-lg btn-block " style="margin-top: 30px;">  <i class="fab fa-facebook" aria-hidden="true"></i> Login with Facebook</button>
                     <button class="btn btn-danger btn-lg btn-block mt-3"><i class="fab fa-google-plus-g"></i> Login with Google</button>
