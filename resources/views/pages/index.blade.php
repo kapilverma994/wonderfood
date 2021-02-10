@@ -185,7 +185,8 @@ $hot_deals=DB::table('products')->join('brands','products.brand_id','brands.id')
                                                 <button class="product_cart_button">Add to Cart</button>
                                             </div>
                                         </div>
-                                        <div class="product_fav"><i class="fas fa-heart"></i></div>
+                                        <a href="{{url('add/wishlist/'.$row->id)}}">
+                                        <div class="product_fav"><i class="fas fa-heart"></i></div></a>
                                         <ul class="product_marks">
                                             @if($row->discount_price!=NULL)
                                             @php 
