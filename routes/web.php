@@ -58,4 +58,4 @@ Route::get('active/product/{product_id}','Admin\ProductController@active_product
 Route::resource('products', 'Admin\ProductController');
 
 //wishlist
-Route::get('add/wishlist/{id}','WishlistController@addwishlist');
+Route::get('add/wishlist/{id}','WishlistController@addWishlist');

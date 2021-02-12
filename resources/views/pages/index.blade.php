@@ -185,7 +185,7 @@ $hot_deals=DB::table('products')->join('brands','products.brand_id','brands.id')
                                                 <button class="product_cart_button">Add to Cart</button>
                                             </div>
                                         </div>
-                              <button class="wishlist" data-id="{{$row->id}}">
+                              <button class="addwishlist" data-id="{{$row->id}}">
                                 <div class="product_fav"><i class="fas fa-heart"></i></div>
                               </button>
                                        
@@ -2926,32 +2926,46 @@ $cats=DB::table('categories')->orderBy('id','desc')->get();
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-$('.wishlist').on('click',function(){
-  var id=$(this).data('id');
- $.ajax({
-     
-
-
- })
-})
-})
-// const Toast = Swal.mixin({
-//   toast: true,
-//   position: 'top-end',
-//   showConfirmButton: false,
-//   timer: 3000,
-//   timerProgressBar: true,
-//   didOpen: (toast) => {
-//     toast.addEventListener('mouseenter', Swal.stopTimer)
-//     toast.addEventListener('mouseleave', Swal.resumeTimer)
-//   }
-// })
-
-// Toast.fire({
-//   icon: 'success',
-//   title: 'Signed in successfully'
-// })
-</script>
+<script type="text/javascript">
+    
+    $(document).ready(function(){
+      $('.addwishlist').on('click', function(){
+         var id = $(this).data('id');
+         if (id) {
+             $.ajax({
+                 url: " {{ url('add/wishlist/') }}/"+id,
+                 type:"GET",
+                 datType:"json",
+                 success:function(data){
+              const Toast = Swal.mixin({
+                   toast: true,
+                   position: 'top-end',
+                   showConfirmButton: false,
+                   timer: 3000,
+                   timerProgressBar: true,
+                   onOpen: (toast) => {
+                     toast.addEventListener('mouseenter', Swal.stopTimer)
+                     toast.addEventListener('mouseleave', Swal.resumeTimer)
+                   }
+                 })
+              if ($.isEmptyObject(data.error)) {
+                 Toast.fire({
+                   icon: 'success',
+                   title: data.success
+                 })
+              }else{
+                  Toast.fire({
+                   icon: 'error',
+                   title: data.error
+                 })
+              }
+  
+                 },
+             });
+         }else{
+             alert('danger');
+         }
+      });
+    });
+ </script>
 @endsection
