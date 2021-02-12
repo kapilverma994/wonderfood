@@ -185,8 +185,11 @@ $hot_deals=DB::table('products')->join('brands','products.brand_id','brands.id')
                                                 <button class="product_cart_button">Add to Cart</button>
                                             </div>
                                         </div>
-                                        <a href="{{url('add/wishlist/'.$row->id)}}">
-                                        <div class="product_fav"><i class="fas fa-heart"></i></div></a>
+                              <button class="wishlist" data-id="{{$row->id}}">
+                                <div class="product_fav"><i class="fas fa-heart"></i></div>
+                              </button>
+                                       
+                                   
                                         <ul class="product_marks">
                                             @if($row->discount_price!=NULL)
                                             @php 
@@ -2922,4 +2925,33 @@ $cats=DB::table('categories')->orderBy('id','desc')->get();
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$('.wishlist').on('click',function(){
+  var id=$(this).data('id');
+ $.ajax({
+     
+
+
+ })
+})
+})
+// const Toast = Swal.mixin({
+//   toast: true,
+//   position: 'top-end',
+//   showConfirmButton: false,
+//   timer: 3000,
+//   timerProgressBar: true,
+//   didOpen: (toast) => {
+//     toast.addEventListener('mouseenter', Swal.stopTimer)
+//     toast.addEventListener('mouseleave', Swal.resumeTimer)
+//   }
+// })
+
+// Toast.fire({
+//   icon: 'success',
+//   title: 'Signed in successfully'
+// })
+</script>
 @endsection
